@@ -172,18 +172,20 @@ pub fn build_wasd_move_camera_system(camera_movement_configs: CameraMoveConfigs)
 
 #[derive(Clone)]
 pub struct CameraZoomConfigs {
+    /// The speed will be multiplied by a normalized `Vec2`, and added to `transform.translation` if unobstructed
+    pub speed: f32,
+   
     /// Sets lower limit to changes of `OrthographicProjection.scale` in system built from [`build_scroll_zoom_camera_system`] 
     pub limit_min: Option<f32>,
     
     /// Sets upper limit to changes of `OrthographicProjection.scale` in system built from [`build_scroll_zoom_camera_system`] 
     pub limit_max: Option<f32>,
 
-    /// The speed will be multiplied by a normalized `Vec2`, and added to `transform.translation` if unobstructed
-    pub speed: f32
+
 }
 
 impl CameraZoomConfigs {
-    pub fn new(limit_min: Option<f32>, limit_max: Option<f32>, speed: f32) -> Self {
+    pub fn new(speed: f32, limit_min: Option<f32>, limit_max: Option<f32>) -> Self {
         CameraZoomConfigs {
             speed,
             limit_min,
