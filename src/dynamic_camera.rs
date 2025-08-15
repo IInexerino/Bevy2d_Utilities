@@ -131,16 +131,16 @@ pub fn build_wasd_move_camera_system(camera_movement_configs: CameraMoveConfigs)
     |{
         let mut movement = Vec2::new(0.,0.);
 
-        if keys.pressed(KeyCode::KeyW) {
+        if keys.pressed(KeyCode::KeyW) || keys.just_pressed(KeyCode::KeyW) {
             movement.y += 1.;
         }
-        if keys.pressed(KeyCode::KeyS) {
+        if keys.pressed(KeyCode::KeyS) || keys.just_pressed(KeyCode::KeyS) {
             movement.y += -1.;
         }
-        if keys.pressed(KeyCode::KeyD) {
+        if keys.pressed(KeyCode::KeyD) || keys.just_pressed(KeyCode::KeyD) {
             movement.x += 1.;
         }
-        if keys.pressed(KeyCode::KeyA) {
+        if keys.pressed(KeyCode::KeyA) || keys.just_pressed(KeyCode::KeyA){
             movement.x += -1.;
         }
 
