@@ -1,4 +1,32 @@
-use bevy::{input::mouse::MouseWheel, prelude::*};
+use bevy::{
+    app::{
+        App, 
+        Plugin, 
+        Startup, 
+        Update
+    }, 
+    ecs::{
+        event::EventReader, 
+        query::With, 
+        system::{
+            Commands, 
+            Res, 
+            Single
+        }
+    }, 
+    input::{
+        keyboard::KeyCode, 
+        mouse::MouseWheel, 
+        ButtonInput
+    }, 
+    math::{
+        Vec2, 
+        Vec3
+    }, 
+    render::camera::Projection, 
+    transform::components::Transform,
+    core_pipeline::core_2d::Camera2d, 
+};
 
 /// A [`Plugin`] that defines an interface for camera dynamicity support in Bevy
 #[derive(Clone)]
@@ -116,7 +144,7 @@ pub fn build_wasd_move_camera_system(camera_movement_configs: CameraMoveConfigs)
             movement.x += -1.;
         }
 
-        if movement != vec2(0., 0.) {
+        if movement != Vec2::new(0., 0.) {
             movement = movement.normalize();
 
             let mut movement = Vec3::new(

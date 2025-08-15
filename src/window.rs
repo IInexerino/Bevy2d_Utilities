@@ -1,4 +1,26 @@
-use bevy::{window::WindowMode, prelude::*};
+use bevy::{ 
+    app::{
+        App, 
+        Plugin, 
+        Update,
+    }, ecs::{
+        resource::Resource, 
+        system::{
+            Query, 
+            Res
+        }
+    }, 
+    input::{
+        keyboard::KeyCode, 
+        ButtonInput
+    }, 
+    window::{
+        MonitorSelection, 
+        VideoModeSelection, 
+        Window, 
+        WindowMode
+    }
+};
 
 /// A [`Plugin`] that defines an interface for common window functionality support in Bevy
 #[derive(Clone, Default)]
