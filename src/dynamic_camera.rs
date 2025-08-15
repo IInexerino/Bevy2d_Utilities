@@ -185,9 +185,9 @@ pub struct CameraZoomConfigs {
 impl CameraZoomConfigs {
     pub fn new(limit_min: Option<f32>, limit_max: Option<f32>, speed: f32) -> Self {
         CameraZoomConfigs {
+            speed,
             limit_min,
             limit_max,
-            speed
         }
     }
 }
